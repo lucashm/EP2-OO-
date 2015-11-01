@@ -7,6 +7,8 @@ package ep2;
 
 import edu.unb.fga.dadosabertos.Camara;
 import edu.unb.fga.dadosabertos.Deputado;
+import edu.unb.fga.dadosabertos.Detalhes;
+import edu.unb.fga.dadosabertos.Partido;
 import java.io.IOException;
 import java.util.List;
 import javax.xml.bind.JAXBException;
@@ -28,8 +30,11 @@ public class EP2 {
        camara.obterDados();
        List<Deputado> deputados = camara.getDeputados();
        Deputado deputado = deputados.get(0);
-       System.out.println(deputado.getNome());
-        System.out.println(deputado.getEmail());
+       deputado.obterDetalhes();
+       Detalhes detalhes = deputado.getDetalhes();
+       Partido partido = detalhes.getPartido();
+       
+       System.out.println(partido.getNome() + " " + partido.getSigla());
     }
     
 }

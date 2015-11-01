@@ -5,10 +5,13 @@
  */
 package views;
 
+import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import models.TabelaDeputados;
 
 /**
  *
@@ -19,6 +22,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form JanelaPrincipal
      */
+    
+    
     public JanelaPrincipal() {
         
         initComponents();

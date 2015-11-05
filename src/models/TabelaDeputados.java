@@ -5,7 +5,7 @@
  */
 package models;
 
-import controllers.Buscar;
+import controllers.Busca;
 import edu.unb.fga.dadosabertos.Camara;
 import edu.unb.fga.dadosabertos.Deputado;
 import edu.unb.fga.dadosabertos.Detalhes;
@@ -17,32 +17,31 @@ import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import javax.xml.bind.JAXBException;
+import views.JanelaPrincipal;
 
 /**
  *
  * @author lucas
  */
-public class TabelaDeputados extends AbstractTableModel {
+public  class TabelaDeputados extends AbstractTableModel {
     
     private final String[] colunas = new String[] {
 			"Nome", "Partido", "Estado", "Email", "Telefone", "Condição"};
     private Object aValue;
     private int rowIndex;
     private int columnIndex;
+    private int deputadosSize;
+    private final List<Deputado> lista;
   
+    public TabelaDeputados(List<Deputado> lista) {
+        this.lista = lista;
+               
+    }
+    
     @Override
     public int getRowCount() {
-        Camara camara = new Camara();
-        try {
-            camara.obterDados();
-        } catch (JAXBException | IOException ex) {
-            Logger.getLogger(TabelaDeputados.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            List<Deputado> deputados;
-            deputados = camara.getDeputados();
-            
-         
-        return deputados.size();
+     
+        return lista.size();
     }
 
     @Override
@@ -51,47 +50,40 @@ public class TabelaDeputados extends AbstractTableModel {
         return 6;
     }
 
-    @Override
+   /* @Override
     public Class<?> getColumnClass(int columnIndex) {
         
             return String.class;
         }
-    
+   */ 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {  
-      Camara camara = new Camara();
-        try {
-            camara.obterDados();
-        } catch (JAXBException | IOException ex) {
-            Logger.getLogger(TabelaDeputados.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            List<Deputado> deputados;
-            deputados = camara.getDeputados();
-       Deputado deputado = deputados.get(rowIndex);  
+        
+        Deputado teste = lista.get(rowIndex);  
       switch (columnIndex) {  
       case 0:   
-            return deputado.getNome();  
+            return teste.getNome();  
       case 1:   
-            return deputado.getPartido();  
+            return teste.getPartido();  
       case 2:
-            return deputado.getUf();
+            return teste.getUf();
       case 3: 
-            return deputado.getEmail();
+            return teste.getEmail();
       case 4: 
-            return deputado.getFone();
+            return teste.getFone();
       case 5: 
-            return deputado.getCondicao();
+            return teste.getCondicao();
       default:   
          return null;  
       }  
         
    }      
     
-    @Override
+  /*  @Override
     public boolean isCellEditable(int rowIndex, int columnIndex){    
          return true;    
      }    
-    
+   
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
     
@@ -100,7 +92,7 @@ public class TabelaDeputados extends AbstractTableModel {
         this.columnIndex = columnIndex;
         
     }
-  
+  */
     
     @Override
     public String getColumnName(int x) {

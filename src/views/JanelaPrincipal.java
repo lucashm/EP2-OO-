@@ -5,12 +5,19 @@
  */
 package views;
 
+import controllers.Busca;
+import edu.unb.fga.dadosabertos.Deputado;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import javax.xml.bind.JAXBException;
 import models.TabelaDeputados;
 
 /**
@@ -22,7 +29,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form JanelaPrincipal
      */
-    
+    public static List<Deputado> lista;
     
     public JanelaPrincipal() {
         
@@ -57,34 +64,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Partido", "Estado", "Email", "Telefone", "Condição"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, true, true, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        jTable1.setModel(new TabelaDeputados(lista));
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Nome");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Partido");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Estado");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("Email");
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Telefone");
-            jTable1.getColumnModel().getColumn(5).setHeaderValue("Condição");
-        }
 
         jTextField1.setText("Buscar deputado");
         jTextField1.setToolTipText("Pesquisar deputado por nome");
@@ -267,13 +248,12 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JanelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        Busca teste = new Busca();
+         JanelaPrincipal.lista = teste.buscarDeputados();
+        
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
-                new JanelaPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new JanelaPrincipal().setVisible(true);
         });
     }
 

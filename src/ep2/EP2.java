@@ -5,7 +5,7 @@
  */
 package ep2;
 
-import controllers.Buscar;
+import controllers.Busca;
 import edu.unb.fga.dadosabertos.Camara;
 import edu.unb.fga.dadosabertos.Deputado;
 import edu.unb.fga.dadosabertos.Detalhes;
@@ -13,6 +13,7 @@ import edu.unb.fga.dadosabertos.Partido;
 import java.io.IOException;
 import java.util.List;
 import javax.xml.bind.JAXBException;
+import models.TabelaDeputados;
 import views.JanelaPrincipal;
 
 
@@ -28,8 +29,12 @@ public class EP2 {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws JAXBException, IOException {
-       
-      Buscar busca = new Buscar();
+      
+      double inicio = System.currentTimeMillis();
+      JanelaPrincipal.main(args);
+      double fim = System.currentTimeMillis();
+      double tempo = (fim-inicio)/1000;
+      System.out.println("Tempo gasto: " + tempo + "segundos");
       }
     
 }

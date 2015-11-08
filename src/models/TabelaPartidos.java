@@ -31,10 +31,12 @@ public  class TabelaPartidos extends AbstractTableModel {
     private int rowIndex;
     private int columnIndex;
     private int deputadosSize;
-    private final List<Partido> lista;
+    private final List<Deputado> lista;
+    private static Detalhes detalhes;
   
-    public TabelaPartidos(List<Partido> lista) {
-        this.lista = lista;
+    public TabelaPartidos(List<Deputado> teste) {
+        lista = teste;
+
                
     }
     
@@ -59,11 +61,11 @@ public  class TabelaPartidos extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {  
         
-        Partido teste = lista.get(rowIndex);
+        Deputado teste = lista.get(rowIndex);
       switch (columnIndex) {  
       case 0:   
             return teste.getNome();
-      case 1:
+      case 1:   
             return teste.getSigla();
       case 2:
             return teste.getIdPartido();

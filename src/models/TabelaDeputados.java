@@ -26,7 +26,7 @@ import views.JanelaPrincipal;
 public  class TabelaDeputados extends AbstractTableModel {
     
     private final String[] colunas = new String[] {
-			"Nome", "Partido", "Estado", "Email", "Telefone", "Condição"};
+			"Nome completo", "Partido", "Estado", "Email", "Telefone", "Condição"};
     private Object aValue;
     private int rowIndex;
     private int columnIndex;

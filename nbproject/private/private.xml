@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lucas/Desktop/EP2/EP2/src/ep2/EP2.java</file>
-            <file>file:/home/lucas/Desktop/EP2/EP2/src/edu/unb/fga/dadosabertos/Partido.java</file>
-            <file>file:/home/lucas/Desktop/EP2/EP2/src/edu/unb/fga/dadosabertos/Deputado.java</file>
             <file>file:/home/lucas/Desktop/EP2/EP2/src/views/JanelaPrincipal.java</file>
-            <file>file:/home/lucas/Desktop/EP2/EP2/src/edu/unb/fga/dadosabertos/Detalhes.java</file>
             <file>file:/home/lucas/Desktop/EP2/EP2/src/controllers/Busca.java</file>
-            <file>file:/home/lucas/Desktop/EP2/EP2/src/models/TabelaPartidos.java</file>
+            <file>file:/home/lucas/Desktop/EP2/EP2/src/models/TabelaDeputados.java</file>
         </group>
     </open-files>
 </project-private>

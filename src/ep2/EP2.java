@@ -35,6 +35,10 @@ public class EP2 {
       double fim = System.currentTimeMillis();
       double tempo = (fim-inicio)/1000;
       System.out.println("Tempo gasto: " + tempo + "segundos");
-      }
     
+    
+      //Busca teste = new Busca();
+     // teste.buscarPartidos();
+    }
+        
 }

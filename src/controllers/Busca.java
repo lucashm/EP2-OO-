@@ -41,7 +41,31 @@ public class Busca{
             
             
         }
-
+        
+        public List<Partido> buscarPartidos(){
+            Camara camara = new Camara();
+            try {
+                camara.obterDados();
+            } catch (JAXBException | IOException ex) {
+                Logger.getLogger(Busca.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                List<Deputado> deputados;
+                deputados = camara.getDeputados();
+                Deputado deputado = deputados.get(0);
+            try {
+                deputado.obterDetalhes();
+            } catch (IOException | JAXBException ex) {
+                Logger.getLogger(Busca.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                Detalhes detalhes = deputado.getDetalhes();
+                Partido partido = detalhes.getPartido();
+               System.out.println(partido.getSigla());
+            
+            
+            return null;
+                
+        }
+  
 }
 
 //  for (int i=0; i<1; i++) {

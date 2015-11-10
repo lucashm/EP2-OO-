@@ -1,0 +1,2 @@
+Para rodar o programa, adicione o projeto ao Netbeans, e adicione as bibliotecas .JAR no classpath do projeto. A classe principal é a EP2.
+O programa mostra a lista de todos os Deputados do Brasil, sendo possível organizar a lista por qualquer parâmetro que as suas colunas oferecem, apenas clicando nas mesmas. Além disso, uma barra de pesquisa foi adicionada, que ao pesquisar o nome completo do deputado, o mesmo já aparece na tela com todos os detalhes. E por último, é possível selecionar qualquer deputado específico ao escolher seu nome e clicar em "Selecionar deputado".

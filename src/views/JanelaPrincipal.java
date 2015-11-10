@@ -21,7 +21,6 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import javax.xml.bind.JAXBException;
 import models.TabelaDeputados;
-import models.TabelaPartidos;
 
 /**
  *
